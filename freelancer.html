@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chambal RD — Join as Freelancer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading-font { font-family: 'Space Grotesk', sans-serif; }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); }
+    .problem-card, .benefit-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .problem-card:hover, .benefit-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 30px 60px -15px rgb(249 115 22 / 0.3); }
+    .nav-link:after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0;
+      background-color: #f97316; transition: width 0.3s ease;
+    }
+    .nav-link:hover:after { width: 100%; }
+    #mobileMenu { transition: transform 0.3s ease-in-out; }
+    #mobileMenu.hidden { transform: translateY(-100%); pointer-events: none; }
+  </style>
+</head>
+<body class="bg-[#0a0a0f] text-gray-100 overflow-x-hidden">
+
+  <!-- Navbar (with link back to main) -->
+  <nav class="fixed top-0 w-full z-50 bg-[#0a0a0f]/90 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="index.html" class="text-3xl font-bold tracking-tighter heading-font">Chambal RD</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="index.html" class="nav-link text-lg font-medium hover:text-orange-400 transition">For Clients</a>
+        <a href="#problems" class="nav-link text-lg font-medium hover:text-orange-400 transition">Problems</a>
+        <a href="#solution" class="nav-link text-lg font-medium hover:text-orange-400 transition">Solution</a>
+        <a href="#how-it-works" class="nav-link text-lg font-medium hover:text-orange-400 transition">How It Works</a>
+        <a href="#earnings" class="nav-link text-lg font-medium hover:text-orange-400 transition">Earnings</a>
+        <a href="#certificate" class="nav-link text-lg font-medium hover:text-orange-400 transition">Certificate</a>
+        
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#apply" class="px-6 py-3 bg-white text-black font-semibold rounded-2xl hover:bg-orange-400 hover:text-white transition text-sm">Apply Now</a>
+        <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden fixed inset-0 bg-[#0a0a0f] z-[60] pt-24 px-6 transform transition-transform duration-300 ease-in-out">
+    <div class="flex flex-col gap-8 text-2xl font-medium">
+      <a href="index.html" onclick="toggleMobileMenu()">For Clients</a>
+      <a href="#problems" onclick="toggleMobileMenu()">Problems</a>
+      <a href="#solution" onclick="toggleMobileMenu()">Solution</a>
+      <a href="#how-it-works" onclick="toggleMobileMenu()">How It Works</a>
+      <a href="#earnings" onclick="toggleMobileMenu()">Earnings</a>
+      <a href="#certificate" onclick="toggleMobileMenu()">Certificate</a>
+      <a href="#apply" onclick="toggleMobileMenu()">Apply</a>
+    </div>
+  </div>
+
+  <!-- Hero (Freelancer) -->
+  <section class="hero-bg min-h-screen flex items-center pt-24 px-6 relative" style="background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="text-6xl md:text-7xl font-bold heading-font" data-aos="fade-up">
+        Stop Chasing Clients.<br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Start Designing.</span>
+      </h1>
+      <p class="mt-6 text-xl text-gray-400 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Join a team that brings you projects, handles client communication, and pays you fairly.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="#apply" class="px-10 py-5 bg-orange-500 hover:bg-orange-600 rounded-2xl font-semibold text-lg shadow-xl shadow-orange-500/30">Apply as Freelancer</a>
+        <a href="#how-it-works" class="px-10 py-5 border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black rounded-2xl font-semibold text-lg">How It Works</a>
+      </div>
+    </div>
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest text-gray-500">
+      <div>SCROLL TO LEARN MORE</div>
+      <div class="w-px h-12 bg-gradient-to-b from-transparent via-gray-500 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Problem Statement (Freelancer Pain Points) -->
+  <section id="problems" class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">The Reality</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Freelancing Isn't Easy. We Know That.</h2>
+        <p class="mt-4 text-xl text-gray-400">Being a freelancer sounds exciting — until reality hits.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Problem 1 -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-search"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">Struggling to Find Clients</h3>
+          <ul class="text-gray-400 space-y-2 text-sm">
+            <li>• Competing with thousands on Fiverr/Upwork</li>
+            <li>• Constant proposal writing</li>
+            <li>• Low response rates</li>
+            <li>• Race to the bottom pricing</li>
+          </ul>
+        </div>
+
+        <!-- Problem 2 -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="50">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-chart-line"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">Unstable Income</h3>
+          <ul class="text-gray-400 space-y-2 text-sm">
+            <li>• Some months overloaded</li>
+            <li>• Some months zero projects</li>
+            <li>• No predictable earnings</li>
+          </ul>
+        </div>
+
+        <!-- Problem 3 -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-user-friends"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">Working Alone on Projects</h3>
+          <ul class="text-gray-400 space-y-2 text-sm">
+            <li>• No team support</li>
+            <li>• No one to guide you</li>
+            <li>• No feedback on improvement</li>
+            <li>• Creative burnout</li>
+          </ul>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="150">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-clock"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">Project Delays & Pressure</h3>
+          <ul class="text-gray-400 space-y-2 text-sm">
+            <li>• Handling client communication alone</li>
+            <li>• Managing revisions alone</li>
+            <li>• Time management stress</li>
+          </ul>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-hand-holding-usd"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">Clients Bargaining & Undervaluing Work</h3>
+          <ul class="text-gray-400 space-y-2 text-sm">
+            <li>• “Can you do it cheaper?”</li>
+            <li>• Scope creep without extra pay</li>
+            <li>• Payment follow-ups</li>
+          </ul>
+        </div>
+
+        <!-- Quote -->
+        <div class="problem-card glass p-8 rounded-3xl border border-orange-400/30 flex items-center justify-center" data-aos="fade-up" data-aos-delay="250">
+          <p class="text-xl text-orange-200 italic">Freelancing should feel empowering — not exhausting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section id="solution" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-5xl font-bold heading-font" data-aos="fade-up">Work With a Team, Not Alone</h2>
+      <p class="mt-4 text-xl text-gray-400" data-aos="fade-up" data-aos-delay="100">Instead of chasing clients… let projects come to you.</p>
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-3xl" data-aos="fade-up">
+          <div class="text-6xl text-orange-400 mb-4"><i class="fas fa-users"></i></div>
+          <h3 class="text-2xl font-semibold">We Bring Clients</h3>
+          <p class="text-gray-400 mt-2">You focus on design, we handle sales and communication.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-6xl text-orange-400 mb-4"><i class="fas fa-tasks"></i></div>
+          <h3 class="text-2xl font-semibold">We Structure Workflow</h3>
+          <p class="text-gray-400 mt-2">Clear processes, team leads, and feedback loops.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-6xl text-orange-400 mb-4"><i class="fas fa-coins"></i></div>
+          <h3 class="text-2xl font-semibold">You Get Paid Fairly</h3>
+          <p class="text-gray-400 mt-2">Transparent per‑page revenue sharing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold heading-font text-center" data-aos="fade-up">How It Works</h2>
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-3xl text-center" data-aos="fade-up">
+          <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-4xl font-bold text-orange-400 mx-auto mb-4">1</div>
+          <h3 class="text-2xl font-semibold">Client gives us a project</h3>
+          <p class="text-gray-400 mt-2">Example: ₹1000 per page design.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-4xl font-bold text-orange-400 mx-auto mb-4">2</div>
+          <h3 class="text-2xl font-semibold">We assign a team</h3>
+          <p class="text-gray-400 mt-2">1 Team Lead + 2–3 Freelance Designers based on skill level.</p>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-4xl font-bold text-orange-400 mx-auto mb-4">3</div>
+          <h3 class="text-2xl font-semibold">You design & get paid</h3>
+          <p class="text-gray-400 mt-2">Your share is clear and transparent.</p>
+        </div>
+      </div>
+      <div class="mt-12 glass p-8 rounded-3xl max-w-3xl mx-auto" data-aos="fade-up">
+        <p class="text-lg text-gray-300">
+          <span class="font-semibold text-orange-400">Example:</span> Client pays ₹1000 for one page. 3 designers work on it. 
+          Each earns ₹333 (or lead gets slightly more). Clear, fair, transparent.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earning Model -->
+  <section id="earnings" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-5xl font-bold heading-font">Earning Model</h2>
+        <p class="mt-4 text-xl text-gray-400">Per‑page revenue sharing – simple and fair.</p>
+      </div>
+
+      <!-- Business advice note: operational cut -->
+      <div class="glass p-8 rounded-3xl border border-orange-400/30 mb-12 max-w-3xl mx-auto" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-2 flex items-center gap-2"><i class="fas fa-info-circle text-orange-400"></i> How we structure payments</h3>
+        <p class="text-gray-300">We take a small operational cut (5% – 20%) for client acquisition, project management, and brand marketing. The rest is divided among the team.</p>
+        <div class="mt-4 p-4 bg-orange-500/10 rounded-xl">
+          <p class="text-lg">Example: ₹1000 client payment → ₹950 distributed to team (₹50 operational).</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up">
+          <div class="text-4xl font-bold text-orange-400">Junior</div>
+          <p class="text-2xl mt-2">₹300<span class="text-sm text-gray-400">/page</span></p>
+        </div>
+        <div class="glass p-6 rounded-3xl text-center border border-orange-400/50" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl font-bold text-orange-400">Mid</div>
+          <p class="text-2xl mt-2">₹350<span class="text-sm text-gray-400">/page</span></p>
+        </div>
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl font-bold text-orange-400">Lead</div>
+          <p class="text-2xl mt-2">₹350<span class="text-sm text-gray-400">/page + bonus</span></p>
+        </div>
+      </div>
+      <p class="text-center text-gray-400 mt-8">*Actual split may vary by project complexity.</p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold heading-font text-center" data-aos="fade-up">Benefits of Joining Our Team</h2>
+      <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up">
+          <div class="text-3xl text-orange-400"><i class="fas fa-ban"></i></div>
+          <div><h3 class="text-xl font-semibold">No Client Hunting</h3><p class="text-gray-400">We bring projects to you.</p></div>
+        </div>
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="text-3xl text-orange-400"><i class="fas fa-users"></i></div>
+          <div><h3 class="text-xl font-semibold">Team Support</h3><p class="text-gray-400">You never work alone.</p></div>
+        </div>
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-3xl text-orange-400"><i class="fas fa-chart-line"></i></div>
+          <div><h3 class="text-xl font-semibold">Skill Growth</h3><p class="text-gray-400">Real startup projects, guided feedback.</p></div>
+        </div>
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="text-3xl text-orange-400"><i class="fas fa-calendar-check"></i></div>
+          <div><h3 class="text-xl font-semibold">Stable Project Flow</h3><p class="text-gray-400">More consistency than solo.</p></div>
+        </div>
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-3xl text-orange-400"><i class="fas fa-rocket"></i></div>
+          <div><h3 class="text-xl font-semibold">Leadership Opportunities</h3><p class="text-gray-400">Junior → Mid → Lead → Supervisor</p></div>
+        </div>
+        <div class="benefit-card glass p-6 rounded-3xl flex items-start gap-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="text-3xl text-orange-400"><i class="fas fa-briefcase"></i></div>
+          <div><h3 class="text-xl font-semibold">Portfolio Growth</h3><p class="text-gray-400">Build strong case studies.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Should Join -->
+  <section class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-5xl font-bold heading-font text-center" data-aos="fade-up">Who Should Join?</h2>
+      <div class="mt-12 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="glass p-8 rounded-3xl flex items-center gap-4" data-aos="fade-right">
+          <i class="fas fa-graduation-cap text-4xl text-orange-400"></i>
+          <span class="text-lg">UI/UX beginners who want real projects</span>
+        </div>
+        <div class="glass p-8 rounded-3xl flex items-center gap-4" data-aos="fade-left" data-aos-delay="50">
+          <i class="fas fa-frown-open text-4xl text-orange-400"></i>
+          <span class="text-lg">Designers tired of freelance instability</span>
+        </div>
+        <div class="glass p-8 rounded-3xl flex items-center gap-4" data-aos="fade-right" data-aos-delay="100">
+          <i class="fas fa-user-graduate text-4xl text-orange-400"></i>
+          <span class="text-lg">Students who want real-world exposure</span>
+        </div>
+        <div class="glass p-8 rounded-3xl flex items-center gap-4" data-aos="fade-left" data-aos-delay="150">
+          <i class="fas fa-users-cog text-4xl text-orange-400"></i>
+          <span class="text-lg">Experienced designers wanting team-based work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growth Path -->
+  <section class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-5xl font-bold heading-font" data-aos="fade-up">Growth Path Inside Our System</h2>
+      <div class="mt-16 flex flex-wrap justify-center gap-8">
+        <div class="glass p-6 rounded-3xl w-48" data-aos="fade-up"><span class="block text-3xl font-bold text-orange-400">1</span> Junior Designer</div>
+        <div class="glass p-6 rounded-3xl w-48" data-aos="fade-up" data-aos-delay="100"><span class="block text-3xl font-bold text-orange-400">2</span> Mid-Level Designer</div>
+        <div class="glass p-6 rounded-3xl w-48" data-aos="fade-up" data-aos-delay="150"><span class="block text-3xl font-bold text-orange-400">3</span> Team Lead</div>
+        <div class="glass p-6 rounded-3xl w-48" data-aos="fade-up" data-aos-delay="200"><span class="block text-3xl font-bold text-orange-400">4</span> Project Supervisor</div>
+      </div>
+      <p class="mt-12 text-gray-400 text-lg">Performance‑based promotion. You grow, we grow.</p>
+    </div>
+  </section>
+
+  <!-- Certificate Program (NEW) -->
+  <section id="certificate" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Get Recognized</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Freelancer Certificate Program</h2>
+        <p class="mt-4 text-xl text-gray-400">Stand out, earn bonuses, and grow into leadership.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <div class="glass p-8 rounded-3xl border border-orange-400/30">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="text-6xl text-orange-400"><i class="fas fa-certificate"></i></div>
+              <h3 class="text-3xl font-semibold">Active Freelancer Certificate</h3>
+            </div>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              Complete multiple projects with us and earn an official Chambal RD certificate. 
+              It validates your experience, skills, and contribution — helping you stand out to future clients and employers.
+            </p>
+            <div class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="text-orange-400 text-xl"><i class="fas fa-check-circle"></i></div>
+                <div><span class="font-semibold">Criteria:</span> Work on at least 5 projects with positive feedback.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="text-orange-400 text-xl"><i class="fas fa-check-circle"></i></div>
+                <div><span class="font-semibold">Benefits:</span> Leadership opportunities, higher project shares, and exclusive bonuses.</div>
+              </div>
+              <div class="flex gap-3">
+                <div class="text-orange-400 text-xl"><i class="fas fa-check-circle"></i></div>
+                <div><span class="font-semibold">Recognition:</span> Featured on our website, LinkedIn recommendations, and a digital badge.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left" class="relative">
+          <div class="glass p-8 rounded-3xl border border-white/10">
+            <h3 class="text-2xl font-semibold mb-4">Level Up Your Freelance Career</h3>
+            <ul class="space-y-4 text-gray-300">
+              <li class="flex gap-3"><i class="fas fa-arrow-right text-orange-400 mt-1"></i> Junior → Mid → Lead → get certified at each stage.</li>
+              <li class="flex gap-3"><i class="fas fa-arrow-right text-orange-400 mt-1"></i> Certificate unlocks higher revenue share.</li>
+              <li class="flex gap-3"><i class="fas fa-arrow-right text-orange-400 mt-1"></i> Priority for complex, high‑budget projects.</li>
+              <li class="flex gap-3"><i class="fas fa-arrow-right text-orange-400 mt-1"></i> Lifetime access to our alumni network.</li>
+            </ul>
+            <div class="mt-8 p-4 bg-orange-500/10 rounded-xl border border-orange-400/30">
+              <p class="text-sm text-gray-300">
+                <span class="font-bold text-orange-400">Example:</span> After 10 successful projects, lead designers receive a certificate and a 5% bonus on every future project.
+              </p>
+            </div>
+          </div>
+          <!-- decorative -->
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promise -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto glass p-12 rounded-3xl text-center" data-aos="zoom-in">
+      <h2 class="text-4xl font-bold heading-font">Our Promise to Freelancers</h2>
+      <ul class="mt-8 space-y-3 text-gray-300 text-lg">
+        <li>✓ Fair payment structure</li>
+        <li>✓ Transparent revenue sharing</li>
+        <li>✓ No toxic clients</li>
+        <li>✓ Structured project management</li>
+        <li>✓ Respect for your time</li>
+      </ul>
+      <p class="mt-8 text-2xl text-orange-400">We grow together.</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="apply" class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-bold heading-font" data-aos="fade-up">Ready to Stop Chasing Clients?</h2>
+      <p class="mt-4 text-xl text-gray-400" data-aos="fade-up" data-aos-delay="100">Join our freelance network today.</p>
+      <div class="mt-12 flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
+        <!-- Application Link go here -->
+         <!-- Google Form Embed -->
+      <div class="mt-16 google-form" data-aos="fade-up" data-aos-delay="400">
+        <!-- IMPORTANT: Replace the src URL with your actual published Google Form URL -->
+        <!-- Get it from: Form -> Send -> Embed HTML -> copy the src value -->
+         <!--Insert Google Form here-->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJfoeTAUSjovt_z_v8SQ52jXpEP_VVtxu4XygzjVixReNywg/viewform?usp=dialog" target="_blank" class="mt-8 inline-block px-10 py-5 bg-orange-500 hover:bg-orange-600 rounded-2xl font-semibold text-lg shadow-xl shadow-orange-500/30" 
+                width="100%" 
+                height="1200" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+          Loading…
+        </iframe>
+      
+      <!-- Manual email option -->
+      <p class="mt-8 text-gray-400">Or send your portfolio to <span class="text-orange-400">chambalRD@gmail.com</span> with subject "Freelancer Application"</p>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-gray-500 border-t border-white/10">
+    <p>© 2026 Chambal RD. Empowering freelancers, together.</p>
+    <p class="mt-2"><a href="index.html" class="hover:text-orange-400">← Back to Client Site</a></p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 100 });
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>

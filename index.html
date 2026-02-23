@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chambal RD — UI/UX for Startups</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .heading-font { font-family: 'Space Grotesk', sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%); }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); }
+    .nav-link:after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0;
+      background-color: #f97316; transition: width 0.3s ease;
+    }
+    .nav-link:hover:after { width: 100%; }
+    #mobileMenu { transition: transform 0.3s ease-in-out; }
+    #mobileMenu.hidden { transform: translateY(-100%); pointer-events: none; }
+    .choice-btn { transition: all 0.3s ease; }
+    /* Make the iframe responsive */
+    .google-form iframe {
+      width: 100%;
+      height: 1200px;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      .google-form iframe { height: 1400px; } /* adjust for mobile */
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0f] text-gray-100 overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-[#0a0a0f]/90 backdrop-blur-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="index.html" class="text-3xl font-bold tracking-tighter heading-font">Chambal RD</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#services" class="nav-link text-lg font-medium hover:text-orange-400 transition">Services</a>
+        <a href="#team" class="nav-link text-lg font-medium hover:text-orange-400 transition">Team</a>
+        <a href="#pricing" class="nav-link text-lg font-medium hover:text-orange-400 transition">Pricing</a>
+        <a href="#process" class="nav-link text-lg font-medium hover:text-orange-400 transition">Process</a>
+        <a href="#contact" class="nav-link text-lg font-medium hover:text-orange-400 transition">Contact</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="px-6 py-3 bg-white text-black font-semibold rounded-2xl hover:bg-orange-400 hover:text-white transition text-sm">Start Project</a>
+        <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden fixed inset-0 bg-[#0a0a0f] z-[60] pt-24 px-6 transform transition-transform duration-300 ease-in-out">
+    <div class="flex flex-col gap-8 text-2xl font-medium">
+      <a href="#services" onclick="toggleMobileMenu()">Services</a>
+      <a href="#team" onclick="toggleMobileMenu()">Team</a>
+      <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
+      <a href="#process" onclick="toggleMobileMenu()">Process</a>
+      <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+      <a href="freelancer.html" onclick="toggleMobileMenu()" class="text-orange-400">Join as Freelancer</a>
+    </div>
+  </div>
+
+  <!-- Hero Section with Client/Freelancer Choice -->
+  <section class="hero-bg min-h-screen flex items-center pt-24 px-6 relative">
+    <div class="max-w-7xl mx-auto text-center md:text-left grid md:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-right">
+        <div class="inline-flex items-center gap-3 bg-white/10 px-5 py-2 rounded-3xl mb-6">
+          <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+          <span class="text-sm font-medium tracking-widest">TEAM AS A SERVICE</span>
+        </div>
+        <h1 class="text-6xl md:text-7xl font-bold leading-tight heading-font">
+          UI/UX design,<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">on a freelancer's budget</span>
+        </h1>
+        <p class="mt-8 text-xl text-gray-400 max-w-lg">
+          Get a whole team – 1 lead + 2–3 junior designers + AI automation – for the price of a single freelancer. 
+          Fast, affordable, and supervised quality.
+        </p>
+        
+        <!-- Choice buttons -->
+        <div class="mt-10 flex flex-wrap justify-center md:justify-start gap-4">
+          <a href="index.html" class="choice-btn px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-2xl font-semibold text-lg shadow-xl shadow-orange-500/30">For Clients</a>
+          <a href="freelancer.html" class="choice-btn px-8 py-4 border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black rounded-2xl font-semibold text-lg">Join as Freelancer</a>
+        </div>
+        <p class="mt-4 text-gray-400 text-sm">Whether you're building a product or building your freelance career — we've got you covered.</p>
+
+        <div class="mt-16 flex items-center gap-12">
+          <div><div class="text-5xl font-bold text-orange-400">₹500</div><div class="text-sm tracking-widest text-gray-400">PER PAGE START</div></div>
+          <div><div class="text-5xl font-bold text-orange-400">3x</div><div class="text-sm tracking-widest text-gray-400">FASTER DELIVERY</div></div>
+        </div>
+      </div>
+      <div data-aos="fade-left" class="flex justify-center md:justify-end">
+        <div class="relative">
+          <div class="w-80 md:w-96 h-80 md:h-96 rounded-[4rem] bg-gradient-to-br from-orange-500/20 to-purple-500/20 flex items-center justify-center border-8 border-white/10">
+            <i class="fas fa-users text-9xl text-orange-400/50"></i>
+          </div>
+          <div class="absolute -inset-6 bg-gradient-to-r from-orange-400 to-amber-300 rounded-[4rem] -z-10 opacity-30 blur-3xl"></div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest text-gray-500">
+      <div>SCROLL TO EXPLORE</div>
+      <div class="w-px h-12 bg-gradient-to-b from-transparent via-gray-500 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- Problem Section (Startup struggles) -->
+  <section class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">The Startup Struggle</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">3 major problems with traditional design</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Problem 1: Freelancers -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-user"></i></div>
+          <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-times-circle text-red-400"></i> Freelancers</h3>
+          <ul class="text-gray-400 space-y-2">
+            <li>• Single person dependency</li>
+            <li>• Delays if sick/busy</li>
+            <li>• Limited skillset</li>
+            <li>• No scalability</li>
+          </ul>
+        </div>
+        <!-- Problem 2: Agencies -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-building"></i></div>
+          <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-times-circle text-red-400"></i> Design Agencies</h3>
+          <ul class="text-gray-400 space-y-2">
+            <li>• Very expensive</li>
+            <li>• Long contracts</li>
+            <li>• Slow communication</li>
+            <li>• Overhead costs</li>
+          </ul>
+        </div>
+        <!-- Problem 3: In-house -->
+        <div class="problem-card glass p-8 rounded-3xl border border-white/10 hover:border-red-400/50" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl mb-4 text-red-400"><i class="fas fa-briefcase"></i></div>
+          <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-times-circle text-red-400"></i> In-house Designers</h3>
+          <ul class="text-gray-400 space-y-2">
+            <li>• High salary burden</li>
+            <li>• Not affordable for early startups</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution / Team Model -->
+  <section id="services" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Our Solution</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Team‑as‑a‑Service</h2>
+        <p class="mt-6 text-2xl text-gray-300 max-w-3xl mx-auto">
+          Instead of one freelancer, you get a full squad with AI superpowers.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <div class="glass p-10 rounded-3xl border border-orange-400/30">
+            <div class="flex flex-wrap gap-4 justify-around mb-8">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto">1</div>
+                <p class="mt-2 font-medium">Lead Designer</p>
+              </div>
+              <div class="text-center">
+                <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto">2-3</div>
+                <p class="mt-2 font-medium">Junior Designers</p>
+              </div>
+              <div class="text-center">
+                <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto">
+                  <i class="fas fa-robot text-2xl"></i>
+                </div>
+                <p class="mt-2 font-medium">AI Automation</p>
+              </div>
+            </div>
+            <h3 class="text-3xl font-semibold mb-4">What you get:</h3>
+            <ul class="space-y-3 text-gray-300 text-lg">
+              <li><i class="fas fa-check-circle text-orange-400 mr-3"></i> Parallel work – faster delivery</li>
+              <li><i class="fas fa-check-circle text-orange-400 mr-3"></i> AI‑assisted wireframing & design systems</li>
+              <li><i class="fas fa-check-circle text-orange-400 mr-3"></i> Senior‑reviewed quality</li>
+              <li><i class="fas fa-check-circle text-orange-400 mr-3"></i> Scalable team as you grow</li>
+            </ul>
+            <div class="mt-8 p-6 bg-orange-500/10 rounded-2xl border border-orange-400/30">
+              <p class="text-2xl font-bold text-orange-400">₹500 – ₹1000 <span class="text-base font-normal text-gray-400">per page</span></p>
+              <p class="text-gray-300 mt-1">depending on complexity – less than a single office party!</p>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <img src="https://placehold.co/600x400/1a1a2e/orange?text=Team+in+Action" alt="Team working" class="rounded-3xl shadow-2xl border border-white/10">
+          <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-orange-500/20 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Leads Carousel (auto‑sliding chips) -->
+  <section id="team" class="py-20 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">The faces behind the work</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Team Lead Designers</h2>
+        <p class="mt-4 text-xl text-gray-400">Experienced leads who design and review every project</p>
+      </div>
+
+      <!-- Slider container Lead team mamber name write here ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+      <div class="overflow-hidden relative" data-aos="fade-up">
+        <div class="slider-track" style="display: flex; width: max-content; animation: scroll 40s linear infinite;">
+          <!-- First set of chips (will be duplicated for seamless loop) -->
+           
+          <!-- Chip 1: Diya Vijay -->
+          <div class="team-chip" style="flex: 0 0 auto; width: 260px; margin-right: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px 20px 20px 100px; padding: 0.75rem 1rem 0.75rem 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease;">
+            <div class="chip-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #fbbf24); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: #0a0a0f; flex-shrink: 0;">DV</div>
+            <div class="chip-info" style="flex: 1; min-width: 0;">
+              <h4 style="font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Diya Vijay</h4>
+              <p style="font-size: 0.75rem; color: #f97316;">UI/UX Lead</p>
+              <div class="chip-links" style="display: flex; gap: 0.5rem; margin-top: 0.2rem;">
+                <a href="https://www.behance.net/diyavj" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://linkedin.com/in/diya-vijay" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.freelancer.com/u/Devvj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Additional chips (shortened for brevity; you can copy from the freelancer page) -->
+          <!-- ... -->
+           <!-- Chip 2: Additional lead (example) -->
+          <div class="team-chip" style="flex: 0 0 auto; width: 260px; margin-right: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px 20px 20px 100px; padding: 0.75rem 1rem 0.75rem 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease;">
+            <div class="chip-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #fbbf24); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: #0a0a0f; flex-shrink: 0;">DV</div>
+            <div class="chip-info" style="flex: 1; min-width: 0;">
+              <h4 style="font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Aryan Rathore</h4>
+              <p style="font-size: 0.75rem; color: #f97316;">Sr. Product Designer</p>
+              <div class="chip-links" style="display: flex; gap: 0.5rem; margin-top: 0.2rem;">
+                <a href="https://www.behance.net/diyavj" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://linkedin.com/in/diya-vijay" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.freelancer.com/u/Devvj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+             <!-- Chip 3: Additional lead (example) -->
+          <div class="team-chip" style="flex: 0 0 auto; width: 260px; margin-right: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px 20px 20px 100px; padding: 0.75rem 1rem 0.75rem 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease;">
+            <div class="chip-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #fbbf24); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: #0a0a0f; flex-shrink: 0;">DV</div>
+            <div class="chip-info" style="flex: 1; min-width: 0;">
+              <h4 style="font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Sneha Mehta</h4>
+              <p style="font-size: 0.75rem; color: #f97316;">UX Lead</p>
+              <div class="chip-links" style="display: flex; gap: 0.5rem; margin-top: 0.2rem;">
+                <a href="https://www.behance.net/diyavj" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://linkedin.com/in/diya-vijay" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.freelancer.com/u/Devvj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Chip 4: Additional lead (example) -->
+          <div class="team-chip" style="flex: 0 0 auto; width: 260px; margin-right: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px 20px 20px 100px; padding: 0.75rem 1rem 0.75rem 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease;">
+            <div class="chip-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #fbbf24); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: #0a0a0f; flex-shrink: 0;">DV</div>
+            <div class="chip-info" style="flex: 1; min-width: 0;">
+              <h4 style="font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Rohan Khanna</h4>
+              <p style="font-size: 0.75rem; color: #f97316;">Brand & UI Lead</p>
+              <div class="chip-links" style="display: flex; gap: 0.5rem; margin-top: 0.2rem;">
+                <a href="https://www.behance.net/diyavj" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://linkedin.com/in/diya-vijay" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.freelancer.com/u/Devvj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chip 5: Additional lead Dev Vijay(example) -->
+          <div class="team-chip" style="flex: 0 0 auto; width: 260px; margin-right: 1.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px 20px 20px 100px; padding: 0.75rem 1rem 0.75rem 0.75rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.3s ease;">
+            <div class="chip-avatar" style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f97316, #fbbf24); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; color: #0a0a0f; flex-shrink: 0;">DV</div>
+            <div class="chip-info" style="flex: 1; min-width: 0;">
+              <h4 style="font-weight: 600; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dev Vijay</h4>
+              <p style="font-size: 0.75rem; color: #f97316;">Project Supervisor</p>
+              <div class="chip-links" style="display: flex; gap: 0.5rem; margin-top: 0.2rem;">
+                <a href="https://www.figma.com/@Dev_vj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-behance"></i></a>
+                <a href="https://www.linkedin.com/in/dev-vj1/" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.freelancer.com/u/Devvj1" target="_blank" style="color: #9ca3af; transition: color 0.2s; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Lead Name on CHip ENd here---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+          <!-- Duplicate set for seamless loop (same chips again) -->
+        </div>
+      </div>
+      <style>
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-50% - 1rem)); }
+        }
+        .slider-track:hover { animation-play-state: paused; }
+        .team-chip:hover { border-color: #f97316; background: rgba(249,115,22,0.1); }
+      </style>
+      <p class="text-center text-gray-400 mt-6 text-sm">Hover to pause the slider</p>
+    </div>
+  </section>
+
+  <!-- How to Start a Project (Submission Guide) -->
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Get Started</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Three ways to kick off your project</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Way 1: Use the form below -->
+        <div class="glass p-8 rounded-3xl border border-white/10" data-aos="fade-up">
+          <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-paper-plane"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">1. Use the form below</h3>
+          <p class="text-gray-400">Fill out our project form – we’ll get back to you within 24 hours.</p>
+        </div>
+
+        <!-- Way 2: Email with subject format -->
+        <div class="glass p-8 rounded-3xl border border-orange-400/30" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-envelope"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">2. Email us directly</h3>
+          <p class="text-gray-400 mb-2">Send your requirements to:</p>
+          <div class="bg-orange-500/10 p-3 rounded-xl font-mono text-orange-300 break-all">
+            chambalRD@gmail.com
+          </div>
+          <p class="text-gray-400 mt-4 text-sm">with subject:</p>
+          <div class="bg-white/5 p-3 rounded-xl font-mono text-sm">
+            &lt;Your Company name &gt; &lt; Project category: web/app/logo&gt;
+          </div>
+          <p class="text-gray-400 mt-3 text-sm">Example: <span class="text-orange-300">"Microsoft Web UI Project Inquiry"</span></p>
+        </div>
+
+        <!-- Way 3: Quick call -->
+        <div class="glass p-8 rounded-3xl border border-white/10" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-phone-alt"></i></div>
+          <h3 class="text-2xl font-semibold mb-3">3. Schedule a call</h3>
+          <p class="text-gray-400">Prefer talking? Let’s hop on a 15‑min call to discuss your needs.</p>
+          <a href="#contact" class="mt-4 inline-block text-orange-400 hover:underline">Request call →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Offered (brief list) -->
+  <section class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">What we do</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Services</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Website UI -->
+        <div class="service-card glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50" data-aos="fade-up">
+          <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-laptop-code text-3xl text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Website UI</h3>
+          <p class="text-gray-400 text-sm">Landing pages, corporate sites, e‑commerce, portfolios</p>
+        </div>
+        <!-- App UI -->
+        <div class="service-card glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50" data-aos="fade-up" data-aos-delay="50">
+          <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-mobile-alt text-3xl text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">App UI</h3>
+          <p class="text-gray-400 text-sm">iOS, Android, SaaS dashboards, admin panels</p>
+        </div>
+        <!-- UX Services -->
+        <div class="service-card glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-project-diagram text-3xl text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">UX Services</h3>
+          <p class="text-gray-400 text-sm">Wireframing, user flows, prototyping, design systems</p>
+        </div>
+        <!-- Add-ons -->
+        <div class="service-card glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50" data-aos="fade-up" data-aos-delay="150">
+          <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-paint-brush text-3xl text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Add‑ons</h3>
+          <p class="text-gray-400 text-sm">Logo, brand kit, pitch deck UI, no‑code builds</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Simple, transparent</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Pricing Plans</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Per Page -->
+        <div class="glass p-8 rounded-3xl border border-orange-400/30 hover:scale-105 transition" data-aos="fade-right">
+          <h3 class="text-2xl font-semibold mb-2">Per Page</h3>
+          <p class="text-5xl font-bold text-orange-400 mb-4">₹500<span class="text-lg font-normal text-gray-400"> – ₹1000</span></p>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Per design page</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> No long‑term commitment</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Full team delivery</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> AI‑accelerated</li>
+          </ul>
+          <a href="#contact" class="mt-8 block w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl text-center font-semibold">Start with a page</a>
+        </div>
+        <!-- Monthly Subscription -->
+        <div class="glass p-8 rounded-3xl border border-orange-400/30 hover:scale-105 transition" data-aos="fade-left">
+          <h3 class="text-2xl font-semibold mb-2">Unlimited</h3>
+          <p class="text-5xl font-bold text-orange-400 mb-4">₹15k<span class="text-lg font-normal text-gray-400"> – ₹40k/mo</span></p>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Unlimited design tasks</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Dedicated team</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Priority support</li>
+            <li><i class="fas fa-check text-orange-400 mr-2"></i> Pause anytime</li>
+          </ul>
+          <a href="#contact" class="mt-8 block w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl text-center font-semibold">Subscribe now</a>
+        </div>
+      </div>
+      <p class="text-center mt-12 text-gray-400 text-lg">🤝 White‑label partnerships available for agencies.</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">How we work</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">From brief to delivery</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto mb-4">1</div>
+          <h3 class="text-xl font-semibold mb-2">Submit Brief</h3>
+          <p class="text-gray-400">Tell us about your project, goals, and timeline.</p>
+        </div>
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto mb-4">2</div>
+          <h3 class="text-xl font-semibold mb-2">Team Assigned</h3>
+          <p class="text-gray-400">Lead + juniors start working in parallel.</p>
+        </div>
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto mb-4">3</div>
+          <h3 class="text-xl font-semibold mb-2">AI‑Powered Design</h3>
+          <p class="text-gray-400">Wireframes, UI kits, prototypes – fast.</p>
+        </div>
+        <div class="glass p-6 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center text-3xl font-bold text-orange-400 mx-auto mb-4">4</div>
+          <h3 class="text-xl font-semibold mb-2">Review & Deliver</h3>
+          <p class="text-gray-400">Senior designer checks quality before handoff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Market -->
+  <section class="py-28 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Who we serve</span>
+        <h2 class="text-5xl font-bold heading-font mt-3">Trusted by startups globally</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-semibold mb-4">🌍 Geography</h3>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 bg-orange-400/10 rounded-full text-lg">India</span>
+            <span class="px-4 py-2 bg-orange-400/10 rounded-full text-lg">UAE</span>
+            <span class="px-4 py-2 bg-orange-400/10 rounded-full text-lg">USA</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">🎯 Primary Customers</h3>
+          <div class="space-y-2 text-gray-300">
+            <p>• Early‑stage startups</p>
+            <p>• SaaS founders</p>
+            <p>• IT companies</p>
+            <p>• App development companies</p>
+            <p>• Web development agencies (white‑label)</p>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="flex justify-center">
+          <div class="w-80 h-80 rounded-full bg-gradient-to-br from-orange-500/20 to-purple-500/20 flex items-center justify-center">
+            <i class="fas fa-globe-asia text-9xl text-orange-400/50"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Google Form Embed -->
+  <section id="contact" class="py-28 px-6 bg-[#111113]">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-bold heading-font" data-aos="fade-up">Ready to scale your design?</h2>
+      <p class="mt-6 text-2xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+      <!-- Google Form Embed -->
+      <div class="mt-16 google-form" data-aos="fade-up" data-aos-delay="400">
+        <!-- IMPORTANT: Replace the src URL with your actual published Google Form URL -->
+        <!-- Get it from: Form -> Send -> Embed HTML -> copy the src value -->
+         <!--Insert Google Form here-->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd8C2uDV3PgS8U54gaj2-KyL7DwhOb0NipsjAOjfxJlUfmJsg/viewform?usp=sharing&ouid=111856472200989474208" target="_blank" class="mt-8 inline-block px-10 py-5 bg-orange-500 hover:bg-orange-600 rounded-2xl font-semibold text-lg shadow-xl shadow-orange-500/30" 
+                width="100%" 
+                height="1200" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
+
+      <!-- Alternative email reminder (still useful) -->
+      <p class="mt-8 text-gray-400 text-sm">
+        Or email us directly at <span class="text-orange-400 font-mono">chambalRD@gmail.com</span> with subject: <span class="text-orange-400">&lt;Company&gt; &lt;service&gt;</span>
+      </p>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-gray-500 border-t border-white/10">
+    <p>© 2026 Chambal RD. Team‑based UI/UX for startups.</p>
+    <p class="mt-2">📧 chambalRD@gmail.com</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 100 });
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
