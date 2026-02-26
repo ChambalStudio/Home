@@ -43,23 +43,29 @@
 </head>
 <body class="bg-[#0a0a0f] text-gray-100 overflow-x-hidden">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 w-full z-50 bg-[#0a0a0f]/90 backdrop-blur-lg border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <a href="index.html" class="text-3xl font-bold tracking-tighter heading-font">Chambal Studio</a>
-      <div class="hidden md:flex items-center gap-10">
-        <a href="#services" class="nav-link text-lg font-medium hover:text-orange-400 transition">Services</a>
-        <a href="#team" class="nav-link text-lg font-medium hover:text-orange-400 transition">Team</a>
-        <a href="#pricing" class="nav-link text-lg font-medium hover:text-orange-400 transition">Pricing</a>
-        <a href="#process" class="nav-link text-lg font-medium hover:text-orange-400 transition">Process</a>
-        <a href="#contact" class="nav-link text-lg font-medium hover:text-orange-400 transition">Contact</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="#contact" class="px-6 py-3 bg-white text-black font-semibold rounded-2xl hover:bg-orange-400 hover:text-white transition text-sm">Start Project</a>
-        <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
-      </div>
+   <!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0a0a0f]/90 backdrop-blur-lg border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <!-- Logo + Brand combined in one link -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="/NO-bgFinalLogo-Color 2.png" alt="Chambal Studio" class="h-10 w-auto">
+      <span class="text-3xl font-bold tracking-tighter heading-font">Chambal Studio</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#services" class="nav-link text-lg font-medium hover:text-orange-400 transition">Services</a>
+      <a href="#team" class="nav-link text-lg font-medium hover:text-orange-400 transition">Team</a>
+      <a href="#pricing" class="nav-link text-lg font-medium hover:text-orange-400 transition">Pricing</a>
+      <a href="#process" class="nav-link text-lg font-medium hover:text-orange-400 transition">Process</a>
+      <a href="#contact" class="nav-link text-lg font-medium hover:text-orange-400 transition">Contact</a>
     </div>
-  </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="px-6 py-3 bg-white text-black font-semibold rounded-2xl hover:bg-orange-400 hover:text-white transition text-sm">Start Project</a>
+      <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
 
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden fixed inset-0 bg-[#0a0a0f] z-[60] pt-24 px-6 transform transition-transform duration-300 ease-in-out">
@@ -547,5 +553,6 @@
 </body>
 
 </html>
+
 
 
