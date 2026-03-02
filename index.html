@@ -40,6 +40,41 @@
 .fade-text.fade-out {
   opacity: 0;
 }
+        /* Navigation arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    .carousel-arrow:hover {
+      background: rgba(249,115,22,0.3);
+      border-color: #f97316;
+    }
+    .carousel-arrow.left {
+      left: -20px;
+    }
+    .carousel-arrow.right {
+      right: -20px;
+    }
+    @media (max-width: 768px) {
+      .carousel-arrow {
+        display: none; /* Hide on mobile, swipe is enough */
+      }
+    }
 
   </style>
 <!-- Favicon -->
@@ -445,40 +480,186 @@
     </div>
   </section>
 
-  <!-- Pricing -->
+    <!-- NEW PRICING SECTION (swipeable, no scrollbar, with manual arrows) -->
   <section id="pricing" class="py-28 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16" data-aos="fade-up">
-        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Simple, transparent</span>
+        <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Simple. Transparent. Affordable.</span>
         <h2 class="text-5xl font-bold heading-font mt-3">Pricing Plans</h2>
       </div>
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Per Page -->
-        <div class="glass p-8 rounded-3xl border border-orange-400/30 hover:scale-105 transition" data-aos="fade-right">
-          <h3 class="text-2xl font-semibold mb-2">Per Page</h3>
-          <p class="text-5xl font-bold text-orange-400 mb-4">₹500<span class="text-lg font-normal text-gray-400"> – ₹2000</span></p>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Per design page</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> No long‑term commitment</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Full team delivery</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> AI‑accelerated</li>
-          </ul>
-          <a href="#contact" class="mt-8 block w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl text-center font-semibold">Start with a page</a>
+
+      <!-- Carousel container with navigation arrows -->
+      <div class="relative w-full" data-aos="fade-up" data-aos-delay="100">
+        <!-- Left arrow -->
+        <div class="carousel-arrow left" id="pricing-prev" role="button" aria-label="Previous plan">
+          <i class="fas fa-chevron-left"></i>
         </div>
-        <!-- Monthly Subscription -->
-        <div class="glass p-8 rounded-3xl border border-orange-400/30 hover:scale-105 transition" data-aos="fade-left">
-          <h3 class="text-2xl font-semibold mb-2">Unlimited</h3>
-          <p class="text-5xl font-bold text-orange-400 mb-4">₹15k<span class="text-lg font-normal text-gray-400"> – ₹40k/mo</span></p>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Unlimited design tasks</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Dedicated team</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Priority support</li>
-            <li><i class="fas fa-check text-orange-400 mr-2"></i> Pause anytime</li>
-          </ul>
-          <a href="#contact" class="mt-8 block w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl text-center font-semibold">Subscribe now</a>
+        <!-- Right arrow -->
+        <div class="carousel-arrow right" id="pricing-next" role="button" aria-label="Next plan">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <!-- Carousel items -->
+        <div id="pricing-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-none" style="scroll-padding: 0 1rem;">
+          
+          <!-- Starter – Per Page -->
+          <div class="flex-shrink-0 w-80 snap-center">
+            <div class="glass p-8 rounded-3xl border border-green-400/30 h-full flex flex-col">
+              <div class="text-3xl mb-2">🟢</div>
+              <h3 class="text-2xl font-semibold mb-1">Starter – Per Page</h3>
+              <p class="text-3xl font-bold text-orange-400 mb-4">₹500 – ₹2,000<span class="text-base font-normal text-gray-400">/page</span></p>
+              <p class="text-sm text-gray-400 mb-4">Perfect for small businesses & basic website needs.</p>
+              <ul class="space-y-2 text-gray-300 text-sm flex-1">
+                <li><i class="fas fa-check text-green-400 mr-2"></i> Single page website UI</li>
+                <li><i class="fas fa-check text-green-400 mr-2"></i> Landing page design</li>
+                <li><i class="fas fa-check text-green-400 mr-2"></i> Portfolio page</li>
+                <li><i class="fas fa-check text-green-400 mr-2"></i> Clean & modern layout</li>
+                <li><i class="fas fa-check text-green-400 mr-2"></i> 1 revision included</li>
+                <li><i class="fas fa-check text-green-400 mr-2"></i> Figma source file</li>
+              </ul>
+              <div class="mt-4 p-3 bg-white/5 rounded-xl text-xs text-gray-400">
+                <span class="font-semibold text-green-400">💡 Ideal for 1–5 page websites</span>
+              </div>
+              <div class="mt-3 text-xs text-gray-500 border-t border-white/10 pt-3">
+                <span class="font-semibold">📝 Agency Comparison:</span> Most Indian agencies charge ₹3,000 – ₹8,000 per page for similar work.
+              </div>
+              <a href="#contact" class="mt-6 block w-full py-3 bg-green-600 hover:bg-green-700 rounded-xl text-center font-semibold">Choose Starter</a>
+            </div>
+          </div>
+
+          <!-- Website Package -->
+          <div class="flex-shrink-0 w-80 snap-center">
+            <div class="glass p-8 rounded-3xl border border-blue-400/30 h-full flex flex-col">
+              <div class="text-3xl mb-2">🔵</div>
+              <h3 class="text-2xl font-semibold mb-1">Website Package</h3>
+              <p class="text-3xl font-bold text-orange-400 mb-4">₹6,000 – ₹18,000<span class="text-base font-normal text-gray-400">/project</span></p>
+              <p class="text-sm text-gray-400 mb-4">For businesses who need a full website design.</p>
+              <ul class="space-y-2 text-gray-300 text-sm flex-1">
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> 5–10 pages UI</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Wireframes included</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Responsive (Desktop + Mobile)</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Basic UX structure</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> 2 revisions per page</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Figma source file</li>
+                <li><i class="fas fa-check text-blue-400 mr-2"></i> Developer handoff support</li>
+              </ul>
+              <div class="mt-3 text-xs text-gray-500 border-t border-white/10 pt-3">
+                <span class="font-semibold">📝 Agency Comparison:</span> Agencies usually charge ₹25,000 – ₹80,000 for similar website UI projects.
+              </div>
+              <a href="#contact" class="mt-6 block w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-center font-semibold">Choose Website</a>
+            </div>
+          </div>
+
+          <!-- App UI Package -->
+          <div class="flex-shrink-0 w-80 snap-center">
+            <div class="glass p-8 rounded-3xl border border-purple-400/30 h-full flex flex-col">
+              <div class="text-3xl mb-2">🟣</div>
+              <h3 class="text-2xl font-semibold mb-1">App UI Package</h3>
+              <p class="text-3xl font-bold text-orange-400 mb-4">₹8,000 – ₹25,000<span class="text-base font-normal text-gray-400">/project</span></p>
+              <p class="text-sm text-gray-400 mb-4">For startups building apps or SaaS dashboards.</p>
+              <ul class="space-y-2 text-gray-300 text-sm flex-1">
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> iOS / Android UI</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> SaaS dashboard UI</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> Admin panels</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> User flow planning</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> Interactive prototype</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> 2 revisions</li>
+                <li><i class="fas fa-check text-purple-400 mr-2"></i> Design system basics</li>
+              </ul>
+              <div class="mt-3 text-xs text-gray-500 border-t border-white/10 pt-3">
+                <span class="font-semibold">📝 Agency Comparison:</span> Indian agencies typically charge ₹40,000 – ₹1,50,000+ for app UI projects.
+              </div>
+              <a href="#contact" class="mt-6 block w-full py-3 bg-purple-600 hover:bg-purple-700 rounded-xl text-center font-semibold">Choose App</a>
+            </div>
+          </div>
+
+          <!-- UX & Design System -->
+          <div class="flex-shrink-0 w-80 snap-center">
+            <div class="glass p-8 rounded-3xl border border-orange-400/30 h-full flex flex-col">
+              <div class="text-3xl mb-2">🟠</div>
+              <h3 class="text-2xl font-semibold mb-1">UX & Design System</h3>
+              <p class="text-3xl font-bold text-orange-400 mb-4">₹5,000 – ₹15,000</p>
+              <p class="text-sm text-gray-400 mb-4">For teams that already have UI but need UX improvements.</p>
+              <ul class="space-y-2 text-gray-300 text-sm flex-1">
+                <li><i class="fas fa-check text-orange-400 mr-2"></i> Wireframing</li>
+                <li><i class="fas fa-check text-orange-400 mr-2"></i> User flows</li>
+                <li><i class="fas fa-check text-orange-400 mr-2"></i> UX audit</li>
+                <li><i class="fas fa-check text-orange-400 mr-2"></i> Prototype</li>
+                <li><i class="fas fa-check text-orange-400 mr-2"></i> Basic design system</li>
+              </ul>
+              <div class="mt-3 text-xs text-gray-500 border-t border-white/10 pt-3">
+                <span class="font-semibold">📝 Agency Comparison:</span> Agencies charge around ₹20,000 – ₹70,000 for UX services.
+              </div>
+              <a href="#contact" class="mt-6 block w-full py-3 bg-orange-600 hover:bg-orange-700 rounded-xl text-center font-semibold">Choose UX</a>
+            </div>
+          </div>
+
+          <!-- Unlimited Design Subscription -->
+          <div class="flex-shrink-0 w-80 snap-center">
+            <div class="glass p-8 rounded-3xl border border-red-400/30 h-full flex flex-col">
+              <div class="text-3xl mb-2">🔴</div>
+              <h3 class="text-2xl font-semibold mb-1">Unlimited Subscription</h3>
+              <p class="text-3xl font-bold text-orange-400 mb-4">₹15,000 – ₹30,000<span class="text-base font-normal text-gray-400">/mo</span></p>
+              <p class="text-sm text-gray-400 mb-4">For startups & growing businesses.</p>
+              <ul class="space-y-2 text-gray-300 text-sm flex-1">
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Unlimited design requests</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Website & App UI</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Landing pages</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Social media creatives</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Priority support</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Pause anytime</li>
+                <li><i class="fas fa-check text-red-400 mr-2"></i> Dedicated small team</li>
+              </ul>
+              <div class="mt-3 text-xs text-gray-500 border-t border-white/10 pt-3">
+                <span class="font-semibold">📝 Agency Comparison:</span> Agencies charge ₹50,000 – ₹1,50,000/month for similar design retainers.
+              </div>
+              <a href="#contact" class="mt-6 block w-full py-3 bg-red-600 hover:bg-red-700 rounded-xl text-center font-semibold">Subscribe</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hint for swipe (visible only on mobile) -->
+        <p class="text-center text-gray-400 text-sm mt-4 md:hidden">← Swipe to see more plans →</p>
+      </div>
+
+      <!-- Add‑On Services -->
+      <div class="mt-20" data-aos="fade-up">
+        <div class="text-center mb-10">
+          <span class="uppercase tracking-[4px] text-orange-400 text-sm font-medium">Add‑on services</span>
+          <h3 class="text-4xl font-bold heading-font mt-2">One‑time design extras</h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <!-- Logo Design -->
+          <div class="glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50 transition text-center">
+            <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-paint-brush"></i></div>
+            <h4 class="text-2xl font-semibold mb-2">Logo Design</h4>
+            <p class="text-3xl font-bold text-orange-400 mb-2">₹2,000 – ₹6,000</p>
+            <p class="text-gray-400 text-sm">Professional brand identity. Agency: ₹8k–₹25k.</p>
+            <a href="#contact" class="mt-4 inline-block text-orange-400 hover:underline">Inquire →</a>
+          </div>
+
+          <!-- Packaging Design -->
+          <div class="glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50 transition text-center">
+            <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-box-open"></i></div>
+            <h4 class="text-2xl font-semibold mb-2">Packaging Design</h4>
+            <p class="text-3xl font-bold text-orange-400 mb-2">₹3,000 – ₹10,000</p>
+            <p class="text-gray-400 text-sm">3D mockups, dielines. Agency: ₹15k–₹50k.</p>
+            <a href="#contact" class="mt-4 inline-block text-orange-400 hover:underline">Inquire →</a>
+          </div>
+
+          <!-- Social Media Ads -->
+          <div class="glass p-6 rounded-3xl border border-white/10 hover:border-orange-400/50 transition text-center">
+            <div class="text-5xl mb-4 text-orange-400"><i class="fas fa-ad"></i></div>
+            <h4 class="text-2xl font-semibold mb-2">Social Ads & Posts</h4>
+            <p class="text-3xl font-bold text-orange-400 mb-2">₹1,000 – ₹3,000/creative</p>
+            <p class="text-gray-400 text-sm">Static + animated. Agency: ₹3k–₹8k per creative.</p>
+            <a href="#contact" class="mt-4 inline-block text-orange-400 hover:underline">Inquire →</a>
+          </div>
         </div>
       </div>
-      <p class="text-center mt-12 text-gray-400 text-lg">🤝 White‑label partnerships available for agencies.</p>
+
+      <!-- White‑label note -->
+      <p class="text-center mt-16 text-gray-400 text-lg">🤝 White‑label partnerships available for agencies.</p>
     </div>
   </section>
 
@@ -621,11 +802,27 @@ function changeText() {
 // Start interval – change every 3 seconds
 setInterval(changeText, 3000);
 
+        // Manual carousel navigation
+    const carousel = document.getElementById('pricing-carousel');
+    const prevBtn = document.getElementById('pricing-prev');
+    const nextBtn = document.getElementById('pricing-next');
+
+    if (carousel && prevBtn && nextBtn) {
+      const cardWidth = 336; // 80px (w-80) + 24px gap ≈ 336px (adjust if needed)
+      prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      });
+    }
+
   </script>
   <!-- suuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu-->
 </body>
 
 </html>
+
 
 
 
